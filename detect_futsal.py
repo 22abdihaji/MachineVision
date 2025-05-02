@@ -24,9 +24,9 @@ ball_positions = deque(maxlen=50)
 frame_index = 0
 
 # Define field zones
-goal_left = {"x_min": 0, "x_max": 150, "y_min": 250, "y_max": 600}
+goal_left = {"x_min": 100, "x_max": 150, "y_min": 250, "y_max": 600}
 goal_right = {"x_min": 1100, "x_max": 1280, "y_min": 250, "y_max": 600}
-center_box = {"x_min": 400, "x_max": 880, "y_min": 520, "y_max": 680}
+center_box = {"x_min": 415, "x_max": 1450, "y_min": 610, "y_max": 700}
 
 def get_center(x1, y1, x2, y2):
     return ((x1 + x2) // 2, (y1 + y2) // 2)
@@ -34,8 +34,15 @@ def get_center(x1, y1, x2, y2):
 def inside_box(x, y, box):
     return box["x_min"] <= x <= box["x_max"] and box["y_min"] <= y <= box["y_max"]
 
+def show_mouse_coords(event, x, y, flags, param):
+    if event == cv2.EVENT_MOUSEMOVE:
+        print(f"Hiiren sijainti: x= {x}, y={y}")
+
 center_box_frames = 0
 fps = cap.get(cv2.CAP_PROP_FPS)
+
+cv2.namedWindow("Futsal Tracking")
+cv2.setMouseCallback("Futsal Tracking", show_mouse_coords)
 
 while cap.isOpened():
     ret, frame = cap.read()
@@ -86,10 +93,14 @@ while cap.isOpened():
     for i in range(1, len(ball_positions)):
         cv2.line(frame, ball_positions[i - 1], ball_positions[i], (0, 0, 255), 2)
         
-    cv2.rectangle(frame,
+    
+    overlay = frame.copy()
+    cv2.rectangle(overlay,
    (center_box["x_min"], center_box["y_min"]),
     (center_box["x_max"], center_box["y_max"]),
-    (255, 255, 255), 2)
+    (255, 255, 255), -1)
+    alpha = 0.2
+    cv2.addWeighted(overlay, alpha, frame, 1 - alpha, 0, frame)
     
     
 
@@ -99,4 +110,5 @@ while cap.isOpened():
 
 cap.release()
 cv2.destroyAllWindows()
+
 
