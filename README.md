@@ -18,7 +18,7 @@ This project performs **real-time tracking of futsal players and ball** using **
 -  **Python 3.12**
 -  **YOLOv8 (Ultralytics)** – for object detection  
 -  **OpenCV** – for frame-by-frame processing, drawing, and UI
--  `face_recognition` (📦 *initially used but later removed* for performance)
+-  `face_recognition` ( *initially used but later removed* for performance)
 -  **VirtualBox** + **Kubuntu**
 -  **VS Code** for code editing
 -  **GitHub** for version control  
