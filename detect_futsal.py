@@ -26,7 +26,7 @@ frame_index = 0  # To handle frame skipping
 # Define detection zones (as rectangles)
 goal_left = {"x_min": 100, "x_max": 150, "y_min": 250, "y_max": 600}
 goal_right = {"x_min": 1100, "x_max": 1280, "y_min": 250, "y_max": 600}
-center_box = {"x_min": 415, "x_max": 1450, "y_min": 610, "y_max": 710}  # Floor-level zone for ball control
+center_box = {"x_min": 415, "x_max": 1450, "y_min": 610, "y_max": 710}  # zone for ball control
 
 # Utility function to find center of a bounding box
 def get_center(x1, y1, x2, y2):
