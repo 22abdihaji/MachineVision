@@ -50,9 +50,10 @@ This project tracks players and the ball from futsal training videos using YOLOv
 - Model performance vs frame rate balance
 - Detecting the goals, players and frames on the field.
 - Difficult to get the video faster with YOLOv5n and YOLOv8n.
+- Precision placement of the central zone.
 
 ##  Results
-- Accurate player box detection
+- Accurate player detection and box measured well.
 - Ball trails working, but only close to the camera and sometimes.
 - Makes lines sometimes, which means that with better camera and camera angle possible to detect the ball. 
 - Center zone identified, but makes the box in different location and smaller than I expected.
