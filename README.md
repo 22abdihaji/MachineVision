@@ -43,7 +43,7 @@ This project tracks players and the ball from futsal training videos using YOLOv
 - Changed central box sizes multiple times so it detects.
 - 
 
-## ⚠ Challenges
+##  Challenges
 - Detecting small, fast-moving white ball
 - Video format issues in Linux VM
 - GitHub push errors due to video/model size
